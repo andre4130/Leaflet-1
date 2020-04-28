@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Ejercicoi Leaflet 2</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+  <body>
+    <div id="mapa" class="row"></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+	<script>
+		var map = L.map('mapa').setView([41.1622023,-8.6569732], 13);
+		var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
+		var marker = null;
+    // var popup = L.popup();
+		map.on('click', function(e) {
+			if(marker) map.removeLayer(marker)
+			var center = e.latlng;
+			marker = L.marker(center).bindPopup("My Coordinates are<br><b>Lat: "+e.latlng.lat+" Lng: "+e.latlng.lng+"</b>").addTo(map).openPopup();
+			map.setView(center, 18);
+		});
+	</script>
+  </body>
+</html>

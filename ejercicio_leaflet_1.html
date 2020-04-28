@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Ejercicoi Leaflet 1</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+  <body>
+    <div id="mapa" class="row"></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+	<script>
+		var map = L.map('mapa').setView([41.386957, 2.170045], 17);
+		var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
+		var marker = null;
+		marker = L.marker([41.386890, 2.1659152]).bindPopup("<h3>Restaurant Centfocs</h3><p>Restaurante mediterráneo<br>Carrer de Balmes, 16, 08007 Barcelona</p>").addTo(map);
+	</script>
+  </body>
+</html>
